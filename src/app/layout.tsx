@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ContextProvider } from "@/context";
 import "./globals.css";
+import "@solana/wallet-adapter-react-ui/styles.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <ContextProvider>{children}</ContextProvider>
       </body>
     </html>
   );
