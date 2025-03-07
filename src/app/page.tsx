@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback } from "react";
-import Image from "next/image";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
 import styles from "./page.module.css";

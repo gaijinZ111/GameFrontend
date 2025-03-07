@@ -2,7 +2,7 @@ export interface ArcanePlayer {
   play: () => void;
   emitUIEvent: (descriptor: string | object) => boolean;
   onReceiveEvent: (name: string, listener: (response: string) => void) => void;
-  onPlayerEvent: (name: string, listener: (data?: any) => void) => void;
+  onPlayerEvent: (name: string, listener: (data?: unknown) => void) => void;
   toggleFullscreen: () => boolean;
 }
 
