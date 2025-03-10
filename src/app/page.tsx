@@ -67,9 +67,9 @@ export default function Home() {
       </div>
 
       <ArcanePlayer
-        projectId={5446}
-        projectKey="8b16131f-7c6b-4435-82c6-1a2d8115d0e9"
-        token="G8bGjLn5fOnp"
+        projectId={5499}
+        projectKey="bf03dfec-ce02-466b-82af-30e1ce1dc285"
+        token="2xtjgipTSLxj"
         onPlayerLoaded={setupArcaneEvents}
       />
     </>
