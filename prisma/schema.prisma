@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String           @id @default(cuid())
+  walletAddress String           @unique
+  balance       BigInt           @default(0)
+  createdAt     DateTime         @default(now())
+  sessions      UserSession[]
+  activity      WalletActivity[]
+}
+
+model UserSession {
+  id         String   @id
+  userWallet String   @unique
+  user       User     @relation(fields: [userWallet], references: [id])
+  createdAt  DateTime @default(now())
+  expiresAt  DateTime @default(dbgenerated("NOW() + interval '3 hours'"))
+  updatedAt  DateTime @updatedAt
+}
+
+model WalletActivity {
+  signature String   @id
+  action    String // deposit or withdraw
+  amount    BigInt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
