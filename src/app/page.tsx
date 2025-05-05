@@ -3,7 +3,7 @@
 import { useCallback } from "react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
-import styles from "./page.module.css";
+import "./page.module.css";
 import { ArcanePlayer as ArcanePlayerType, getArcane } from "@/arcane";
 import { ArcanePlayer } from "@/components/ArcanePlayer";
 
