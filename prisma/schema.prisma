@@ -18,12 +18,13 @@ model User {
 }
 
 model UserSession {
-  id         String   @id
-  userWallet String   @unique
-  user       User     @relation(fields: [userWallet], references: [id])
-  createdAt  DateTime @default(now())
-  expiresAt  DateTime @default(dbgenerated("NOW() + interval '3 hours'"))
-  updatedAt  DateTime @updatedAt
+  id        String   @id
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  expired   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  expiresAt DateTime @default(dbgenerated("(now() + '03:00:00'::interval)"))
+  updatedAt DateTime @updatedAt
 }
 
 model WalletActivity {
